@@ -2,6 +2,7 @@ import React from 'react';
 import AddPlayerForm from './AddPlayerForm';
 import Player from './Player';
 import base from '../base';
+import events from './events';
 
 
 class Main extends React.Component {
@@ -12,8 +13,20 @@ class Main extends React.Component {
 
 		// set initial state
 		this.state = {
-			players: {}
+			players: {},
+			medals: {},
+			countries: {}
 		};
+	}
+
+	componentDidMount(){
+		console.log(events.Events);
+		// const url = 'https://restcountries.eu/rest/v1/capital/tallinn';
+		// fetch(url)
+			// .then( (result) => {
+				// this.setState({ medals: result.body });
+				// console.log(result);
+			// });
 	}
 
 	componentWillMount() {
