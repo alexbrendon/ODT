@@ -1,26 +1,29 @@
 import React from 'react';
 import AddPlayerForm from './AddPlayerForm';
 import Player from './Player';
+import Event from './Event';
 import base from '../base';
 import events from './events';
 
 
-class Main extends React.Component {
+class App extends React.Component {
 	constructor(){
 		super();
 
 		this.addPlayer = this.addPlayer.bind(this);
+		this.removePlayer = this.removePlayer.bind(this);
 
 		// set initial state
 		this.state = {
 			players: {},
 			medals: {},
-			countries: {}
+			countries: {},
+			events: {}
 		};
 	}
 
 	componentDidMount(){
-		console.log(events.Events);
+		this.setState({ events: events});
 		// const url = 'https://restcountries.eu/rest/v1/capital/tallinn';
 		// fetch(url)
 			// .then( (result) => {
@@ -48,21 +51,32 @@ class Main extends React.Component {
 		this.setState({ players: players });
 	}
 
+	removePlayer( key ) {
+		const players = {...this.state.players};
+		players[key] = null;
+		this.setState({ players: players });
+	}
+
 
 	render(){
 		return (
 			<div className="test">
 				<h1>ODT</h1>
+				<AddPlayerForm addPlayer={this.addPlayer} />
 				<ul className="player-list">
 					{
-						Object.keys( this.state.players ).map( (key) => <Player key={key} details={this.state.players[key]} /> )
+						Object.keys( this.state.players ).map( (key) => <Player key={key} index={key} details={this.state.players[key]} removePlayer={this.removePlayer} /> )
 					}
 				</ul>
-				<AddPlayerForm addPlayer={this.addPlayer} />
+				<ul className="eventList">
+					{
+						Object.keys( this.state.events ).map( (key) => <Event key={key} index={key} details={this.state.events[key]} players={this.state.players} /> )
+					}
+				</ul>
 			</div>
 		)
 	}
 }
 
 
-export default Main;
+export default App;

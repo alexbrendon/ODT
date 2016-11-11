@@ -6,7 +6,12 @@ class AddPlayerForm extends React.Component {
 		event.preventDefault();
 
 		const player = {
-			name: this.name.value
+			name: this.name.value,
+			medalCount: {
+				gold: null,
+				silver: null,
+				bronze: null
+			}
 		}
 
 		this.props.addPlayer( player );
