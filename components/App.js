@@ -1,9 +1,9 @@
 import React from 'react';
 import AddPlayerForm from './AddPlayerForm';
 import Player from './Player';
-import Event from './Event';
+import Draft from './Draft';
 import base from '../base';
-import events from './events';
+import data from './data';
 
 
 class App extends React.Component {
@@ -12,6 +12,7 @@ class App extends React.Component {
 
 		this.addPlayer = this.addPlayer.bind(this);
 		this.removePlayer = this.removePlayer.bind(this);
+		this.updatePlayer = this.updatePlayer.bind(this);
 
 		// set initial state
 		this.state = {
@@ -23,7 +24,8 @@ class App extends React.Component {
 	}
 
 	componentDidMount(){
-		this.setState({ events: events});
+		this.setState({ events: data.Events });
+		this.setState({ countries: data.Countries });
 		// const url = 'https://restcountries.eu/rest/v1/capital/tallinn';
 		// fetch(url)
 			// .then( (result) => {
@@ -57,22 +59,32 @@ class App extends React.Component {
 		this.setState({ players: players });
 	}
 
+	updatePlayer( key, updatedPlayer ){
+		const players = {...this.state.players};
+		players[key] = updatedPlayer;
+		this.setState({ players: players });
+	}
+
 
 	render(){
+
 		return (
 			<div className="test">
 				<h1>ODT</h1>
-				<AddPlayerForm addPlayer={this.addPlayer} />
-				<ul className="player-list">
-					{
-						Object.keys( this.state.players ).map( (key) => <Player key={key} index={key} details={this.state.players[key]} removePlayer={this.removePlayer} /> )
-					}
-				</ul>
-				<ul className="eventList">
-					{
-						Object.keys( this.state.events ).map( (key) => <Event key={key} index={key} details={this.state.events[key]} players={this.state.players} /> )
-					}
-				</ul>
+				<div className="addPlayer">
+					<AddPlayerForm addPlayer={this.addPlayer} />
+					<ul className="player-list">
+						{
+							Object.keys( this.state.players ).map( (key) => <Player key={key} index={key} details={this.state.players[key]} removePlayer={this.removePlayer} /> )
+						}
+					</ul>
+				</div>
+
+				<Draft 
+				events={this.state.events} 
+				players={this.state.players} 
+				countries={this.state.countries}
+				updatePlayer={this.updatePlayer} />
 			</div>
 		)
 	}
