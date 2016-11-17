@@ -3,685 +3,911 @@ module.exports = {
   
   Events: [
     {
-        name: "Archery"
+        name: "Archery",
+        key: 0
     },
     {
-        name: "Badminton"
+        name: "Badminton",
+        key: 1
     },
     {
-        name: "Basketball"
+        name: "Basketball",
+        key: 2
     },
     {
-        name: "Beach Volleybal"
+        name: "Beach Volleybal",
+        key: 3
     },
     {
-        name: "Boxing"
+        name: "Boxing",
+        key: 4
     },
     {
-        name: "Cycling"
+        name: "Cycling",
+        key: 5
     },
     {
-        name: "Diving"
+        name: "Diving",
+        key: 6
     },
     {
-        name: "Equestrian"
+        name: "Equestrian",
+        key: 7
     },
     {
-        name: "Fencing"
+        name: "Fencing",
+        key: 8
     },
     {
-        name: "Gymnastics"
+        name: "Gymnastics",
+        key: 9
     },
     {
-        name: "Handball"
+        name: "Handball",
+        key: 10
     },
     {
-        name: "Hockey"
+        name: "Hockey",
+        key: 11
     },
     {
-        name: "Judo"
+        name: "Judo",
+        key: 12
     },
     {
-        name: "Rowing"
+        name: "Rowing",
+        key: 13
     },
     {
-        name: "Rugby"
+        name: "Rugby",
+        key: 14
     },
     {
-        name: "Sailing"
+        name: "Sailing",
+        key: 15
     },
     {
-        name: "Soccer"
+        name: "Soccer",
+        key: 16
     },
     {
-        name: "Swimming"
+        name: "Swimming",
+        key: 17
     },
     {
-        name: "Table Tennis"
+        name: "Table Tennis",
+        key: 18
     },
     {
-        name: "Taekwondo"
+        name: "Taekwondo",
+        key: 19
     },
     {
-        name: "Tennis"
+        name: "Tennis",
+        key: 20
     },
     {
-        name: "Track & Field"
+        name: "Track & Field",
+        key: 21
     },
     {
-        name: "Triathlon"
+        name: "Triathlon",
+        key: 22
     },
     {
-        name: "Volleyball (Indoor)"
+        name: "Volleyball (Indoor)",
+        key: 23
     },
     {
-        name: "Weightlifting"
+        name: "Weightlifting",
+        key: 24
     }
 ],
 
 Countries: [
     {
-        name: "Afghanistan"   
+        name: "Afghanistan",
+        key: 1
     },
     {
-        name: "Albania"   
+        name: "Albania",
+        key: 2
     },
     {
-        name: "Algeria"   
+        name: "Algeria",
+        key: 3
     },
     {
-        name: "American Samoa*"   
+        name: "American Samoa*",
+        key: 4
     },
     {
-        name: "Andorra"   
+        name: "Andorra",
+        key: 5
     },
     {
-        name: "Angola"   
+        name: "Angola",
+        key: 6
     },
     {
-        name: "Antigua and Barbuda"   
+        name: "Antigua and Barbuda",
+        key: 7
     },
     {
-        name: "Argentina"   
+        name: "Argentina",
+        key: 8
     },
     {
-        name: "Armenia"   
+        name: "Armenia",
+        key: 9
     },
     {
-        name: "Aruba*"   
+        name: "Aruba*",
+        key: 10
     },
     {
-        name: "Australia"   
+        name: "Australia",
+        key: 11
     },
     {
-        name: "Austria"   
+        name: "Austria",
+        key: 12
     },
     {
-        name: "Azerbaijan"   
+        name: "Azerbaijan",
+        key: 13
     },
     {
-        name: "Bahamas"   
+        name: "Bahamas",
+        key: 14
     },
     {
-        name: "Bahrain"   
+        name: "Bahrain",
+        key: 15
     },
     {
-        name: "Bangladesh"   
+        name: "Bangladesh",
+        key: 16
     },
     {
-        name: "Barbados"   
+        name: "Barbados",
+        key: 17
     },
     {
-        name: "Belarus"   
+        name: "Belarus",
+        key: 18
     },
     {
-        name: "Belgium"   
+        name: "Belgium",
+        key: 19
     },
     {
-        name: "Belize"   
+        name: "Belize",
+        key: 20
     },
     {
-        name: "Bermuda*"   
+        name: "Bermuda*",
+        key: 21
     },
     {
-        name: "Benin"   
+        name: "Benin",
+        key: 22
     },
     {
-        name: "Bhutan"   
+        name: "Bhutan",
+        key: 23
     },
     {
-        name: "Bolivia"   
+        name: "Bolivia",
+        key: 24
     },
     {
-        name: "Bosnia and Herzegovina"   
+        name: "Bosnia and Herzegovina",
+        key: 25
     },
     {
-        name: "Botswana"   
+        name: "Botswana",
+        key: 26
     },
     {
-        name: "Brazil"   
+        name: "Brazil",
+        key: 27
     },
     {
-        name: "British Virgin Islands"   
+        name: "British Virgin Islands",
+        key: 28
     },
     {
-        name: "Brunei"   
+        name: "Brunei",
+        key: 29
     },
     {
-        name: "Bulgaria"   
+        name: "Bulgaria",
+        key: 30
     },
     {
-        name: "Burkina Faso"   
+        name: "Burkina Faso",
+        key: 31
     },
     {
-        name: "Burundi"   
+        name: "Burundi",
+        key: 32
     },
     {
-        name: "Cambodia"   
+        name: "Cambodia",
+        key: 33
     },
     {
-        name: "Cameroon"   
+        name: "Cameroon",
+        key: 34
     },
     {
-        name: "Canada"   
+        name: "Canada",
+        key: 35
     },
     {
-        name: "Cape Verde"   
+        name: "Cape Verde",
+        key: 36
     },
     {
-        name: "Cayman Islands*"   
+        name: "Cayman Islands*",
+        key: 37
     },
     {
-        name: "Central African Republic"   
+        name: "Central African Republic",
+        key: 38
     },
     {
-        name: "Chad"   
+        name: "Chad",
+        key: 39
     },
     {
-        name: "Chile"   
+        name: "Chile",
+        key: 40
     },
     {
-        name: "China"   
+        name: "China",
+        key: 41
     },
     {
-        name: "Colombia"   
+        name: "Colombia",
+        key: 42
     },
     {
-        name: "Comoros"   
+        name: "Comoros",
+        key: 43
     },
     {
-        name: "Congo"   
+        name: "Congo",
+        key: 44
     },
     {
-        name: "Congo, Dem Rep"   
+        name: "Congo, Dem Rep",
+        key: 45
     },
     {
-        name: "Cook Islands"   
+        name: "Cook Islands",
+        key: 46
     },
     {
-        name: "Costa Rica"   
+        name: "Costa Rica",
+        key: 47
     },
     {
-        name: "Cote d'Ivoire"   
+        name: "Cote d'Ivoire",
+        key: 48
     },
     {
-        name: "Croatia"   
+        name: "Croatia",
+        key: 49
     },
     {
-        name: "Cuba"   
+        name: "Cuba",
+        key: 50
     },
     {
-        name: "Cyprus"   
+        name: "Cyprus",
+        key: 51
     },
     {
-        name: "Czech Republic"   
+        name: "Czech Republic",
+        key: 52
     },
     {
-        name: "Denmark"   
+        name: "Denmark",
+        key: 53
     },
     {
-        name: "Djibouti"   
+        name: "Djibouti",
+        key: 54
     },
     {
-        name: "Dominica"   
+        name: "Dominica",
+        key: 55
     },
     {
-        name: "Dominican Republic"   
+        name: "Dominican Republic",
+        key: 56
     },
     {
-        name: "East Timor (Timor-Leste)"   
+        name: "East Timor (Timor-Leste)",
+        key: 57
     },
     {
-        name: "Ecuador"   
+        name: "Ecuador",
+        key: 58
     },
     {
-        name: "Egypt"   
+        name: "Egypt",
+        key: 59
     },
     {
-        name: "El Salvador"   
+        name: "El Salvador",
+        key: 60
     },
     {
-        name: "Equatorial Guinea"   
+        name: "Equatorial Guinea",
+        key: 61
     },
     {
-        name: "Eritrea"   
+        name: "Eritrea",
+        key: 62
     },
     {
-        name: "Estonia"   
+        name: "Estonia",
+        key: 63
     },
     {
-        name: "Ethiopia"   
+        name: "Ethiopia",
+        key: 64
     },
     {
-        name: "Fiji"   
+        name: "Fiji",
+        key: 65
     },
     {
-        name: "Finland"   
+        name: "Finland",
+        key: 66
     },
     {
-        name: "France"   
+        name: "France",
+        key: 67
     },
     {
-        name: "Gabon"   
+        name: "Gabon",
+        key: 68
     },
     {
-        name: "Gambia"   
+        name: "Gambia",
+        key: 69
     },
     {
-        name: "Georgia"   
+        name: "Georgia",
+        key: 70
     },
     {
-        name: "Germany"   
+        name: "Germany",
+        key: 71
     },
     {
-        name: "Ghana"   
+        name: "Ghana",
+        key: 72
     },
     {
-        name: "Greece"   
+        name: "Greece",
+        key: 73
     },
     {
-        name: "Grenada"   
+        name: "Grenada",
+        key: 74
     },
     {
-        name: "Guam"   
+        name: "Guam",
+        key: 75
     },
     {
-        name: "Guatemala"   
+        name: "Guatemala",
+        key: 76
     },
     {
-        name: "Guinea"   
+        name: "Guinea",
+        key: 77
     },
     {
-        name: "Guinea-Bissau"   
+        name: "Guinea-Bissau",
+        key: 78
     },
     {
-        name: "Guyana"   
+        name: "Guyana",
+        key: 79
     },
     {
-        name: "Haiti"   
+        name: "Haiti",
+        key: 80
     },
     {
-        name: "Honduras"   
+        name: "Honduras",
+        key: 81
     },
     {
-        name: "Hong Kong*"   
+        name: "Hong Kong*",
+        key: 82
     },
     {
-        name: "Hungary"   
+        name: "Hungary",
+        key: 83
     },
     {
-        name: "Iceland"   
+        name: "Iceland",
+        key: 84
     },
     {
-        name: "India"   
+        name: "India",
+        key: 85
     },
     {
-        name: "Indonesia"   
+        name: "Indonesia",
+        key: 86
     },
     {
-        name: "Iran"   
+        name: "Iran",
+        key: 87
     },
     {
-        name: "Iraq"   
+        name: "Iraq",
+        key: 88
     },
     {
-        name: "Ireland"   
+        name: "Ireland",
+        key: 89
     },
     {
-        name: "Israel"   
+        name: "Israel",
+        key: 90
     },
     {
-        name: "Italy"   
+        name: "Italy",
+        key: 91
     },
     {
-        name: "Jamaica"   
+        name: "Jamaica",
+        key: 92
     },
     {
-        name: "Japan"   
+        name: "Japan",
+        key: 93
     },
     {
-        name: "Jordan"   
+        name: "Jordan",
+        key: 94
     },
     {
-        name: "Kazakhstan"   
+        name: "Kazakhstan",
+        key: 95
     },
     {
-        name: "Kenya"   
+        name: "Kenya",
+        key: 96
     },
     {
-        name: "Korea, North"   
+        name: "Korea, North",
+        key: 97
     },
     {
-        name: "Korea, South"   
+        name: "Korea, South",
+        key: 98
     },
     {
-        name: "Kuwait"   
+        name: "Kuwait",
+        key: 99
     },
     {
-        name: "Kyrgyzstan"   
+        name: "Kyrgyzstan",
+        key: 100
     },
     {
-        name: "Laos"   
+        name: "Laos",
+        key: 101
     },
     {
-        name: "Latvia"   
+        name: "Latvia",
+        key: 102
     },
     {
-        name: "Lebanon"   
+        name: "Lebanon",
+        key: 103
     },
     {
-        name: "Lesotho"   
+        name: "Lesotho",
+        key: 104
     },
     {
-        name: "Liberia"   
+        name: "Liberia",
+        key: 105
     },
     {
-        name: "Libya"   
+        name: "Libya",
+        key: 106
     },
     {
-        name: "Liechtenstein"   
+        name: "Liechtenstein",
+        key: 107
     },
     {
-        name: "Lithuania"   
+        name: "Lithuania",
+        key: 108
     },
     {
-        name: "Luxembourg"   
+        name: "Luxembourg",
+        key: 109
     },
     {
-        name: "Macedonia"   
+        name: "Macedonia",
+        key: 110
     },
     {
-        name: "Madagascar"   
+        name: "Madagascar",
+        key: 111
     },
     {
-        name: "Malawi"   
+        name: "Malawi",
+        key: 112
     },
     {
-        name: "Malaysia"   
+        name: "Malaysia",
+        key: 113
     },
     {
-        name: "Maldives"   
+        name: "Maldives",
+        key: 114
     },
     {
-        name: "Mali"   
+        name: "Mali",
+        key: 115
     },
     {
-        name: "Malta"   
+        name: "Malta",
+        key: 116
     },
     {
-        name: "Mauritania"   
+        name: "Mauritania",
+        key: 117
     },
     {
-        name: "Mauritius"   
+        name: "Mauritius",
+        key: 118
     },
     {
-        name: "Mexico"   
+        name: "Mexico",
+        key: 119
     },
     {
-        name: "Micronesia"   
+        name: "Micronesia",
+        key: 120
     },
     {
-        name: "Moldova"   
+        name: "Moldova",
+        key: 121
     },
     {
-        name: "Monaco"   
+        name: "Monaco",
+        key: 122
     },
     {
-        name: "Mongolia"   
+        name: "Mongolia",
+        key: 123
     },
     {
-        name: "Morocco"   
+        name: "Morocco",
+        key: 124
     },
     {
-        name: "Mozambique"   
+        name: "Mozambique",
+        key: 125
     },
     {
-        name: "Burma"   
+        name: "Burma",
+        key: 126
     },
     {
-        name: "Namibia"   
+        name: "Namibia",
+        key: 127
     },
     {
-        name: "Nauru"   
+        name: "Nauru",
+        key: 128
     },
     {
-        name: "Nepal"   
+        name: "Nepal",
+        key: 129
     },
     {
-        name: "Netherlands"   
+        name: "Netherlands",
+        key: 130
     },
     {
-        name: "Netherlands Antilles*"   
+        name: "Netherlands Antilles*",
+        key: 131
     },
     {
-        name: "New Zealand"   
+        name: "New Zealand",
+        key: 132
     },
     {
-        name: "Nicaragua"   
+        name: "Nicaragua",
+        key: 133
     },
     {
-        name: "Niger"   
+        name: "Niger",
+        key: 134
     },
     {
-        name: "Nigeria"   
+        name: "Nigeria",
+        key: 135
     },
     {
-        name: "Norway"   
+        name: "Norway",
+        key: 136
     },
     {
-        name: "Oman"   
+        name: "Oman",
+        key: 137
     },
     {
-        name: "Pakistan"   
+        name: "Pakistan",
+        key: 138
     },
     {
-        name: "Palau"   
+        name: "Palau",
+        key: 139
     },
     {
-        name: "Palestine, Occupied Territories"   
+        name: "Palestine, Occupied Territories",
+        key: 140
     },
     {
-        name: "Panama"   
+        name: "Panama",
+        key: 141
     },
     {
-        name: "Papua New Guinea"   
+        name: "Papua New Guinea",
+        key: 142
     },
     {
-        name: "Paraguay"   
+        name: "Paraguay",
+        key: 143
     },
     {
-        name: "Peru"   
+        name: "Peru",
+        key: 144
     },
     {
-        name: "Philippines"   
+        name: "Philippines",
+        key: 145
     },
     {
-        name: "Poland"   
+        name: "Poland",
+        key: 146
     },
     {
-        name: "Portugal"   
+        name: "Portugal",
+        key: 147
     },
     {
-        name: "Puerto Rico*"   
+        name: "Puerto Rico*",
+        key: 148
     },
     {
-        name: "Qatar"   
+        name: "Qatar",
+        key: 149
     },
     {
-        name: "Romania"   
+        name: "Romania",
+        key: 150
     },
     {
-        name: "Russia"   
+        name: "Russia",
+        key: 151
     },
     {
-        name: "Rwanda"   
+        name: "Rwanda",
+        key: 152
     },
     {
-        name: "Saint Kitts and Nevis"   
+        name: "Saint Kitts and Nevis",
+        key: 153
     },
     {
-        name: "Saint Lucia"   
+        name: "Saint Lucia",
+        key: 154
     },
     {
-        name: "Saint Vincent and the Grenadines"   
+        name: "Saint Vincent and the Grenadines",
+        key: 155
     },
     {
-        name: "Samoa"   
+        name: "Samoa",
+        key: 156
     },
     {
-        name: "San Marino"   
+        name: "San Marino",
+        key: 157
     },
     {
-        name: "Sao Tome and Principe"   
+        name: "Sao Tome and Principe",
+        key: 158
     },
     {
-        name: "Saudi Arabia"   
+        name: "Saudi Arabia",
+        key: 159
     },
     {
-        name: "Senegal"   
+        name: "Senegal",
+        key: 160
     },
     {
-        name: "Serbia"   
+        name: "Serbia",
+        key: 161
     },
     {
-        name: "Seychelles"   
+        name: "Seychelles",
+        key: 162
     },
     {
-        name: "Sierra Leone"   
+        name: "Sierra Leone",
+        key: 163
     },
     {
-        name: "Singapore"   
+        name: "Singapore",
+        key: 164
     },
     {
-        name: "Slovakia"   
+        name: "Slovakia",
+        key: 165
     },
     {
-        name: "Slovenia"   
+        name: "Slovenia",
+        key: 166
     },
     {
-        name: "Solomon Islands"   
+        name: "Solomon Islands",
+        key: 167
     },
     {
-        name: "Somalia"   
+        name: "Somalia",
+        key: 168
     },
     {
-        name: "South Africa"   
+        name: "South Africa",
+        key: 169
     },
     {
-        name: "Spain"   
+        name: "Spain",
+        key: 170
     },
     {
-        name: "Sri Lanka"   
+        name: "Sri Lanka",
+        key: 171
     },
     {
-        name: "Sudan"   
+        name: "Sudan",
+        key: 172
     },
     {
-        name: "Suriname"   
+        name: "Suriname",
+        key: 173
     },
     {
-        name: "Swaziland"   
+        name: "Swaziland",
+        key: 174
     },
     {
-        name: "Sweden"   
+        name: "Sweden",
+        key: 175
     },
     {
-        name: "Switzerland"   
+        name: "Switzerland",
+        key: 176
     },
     {
-        name: "Syria"   
+        name: "Syria",
+        key: 177
     },
     {
-        name: "Taiwan"   
+        name: "Taiwan",
+        key: 178
     },
     {
-        name: "Tajikistan"   
+        name: "Tajikistan",
+        key: 179
     },
     {
-        name: "Tanzania"   
+        name: "Tanzania",
+        key: 180
     },
     {
-        name: "Thailand"   
+        name: "Thailand",
+        key: 181
     },
     {
-        name: "Togo"   
+        name: "Togo",
+        key: 182
     },
     {
-        name: "Tonga"   
+        name: "Tonga",
+        key: 183
     },
     {
-        name: "Trinidad and Tobago"   
+        name: "Trinidad and Tobago",
+        key: 184
     },
     {
-        name: "Tunisia"   
+        name: "Tunisia",
+        key: 185
     },
     {
-        name: "Turkey"   
+        name: "Turkey",
+        key: 186
     },
     {
-        name: "Turkmenistan"   
+        name: "Turkmenistan",
+        key: 187
     },
     {
-        name: "Uganda"   
+        name: "Uganda",
+        key: 188
     },
     {
-        name: "Ukraine"   
+        name: "Ukraine",
+        key: 189
     },
     {
-        name: "United Arab Emirates"   
+        name: "United Arab Emirates",
+        key: 190
     },
     {
-        name: "United Kingdom"   
+        name: "United Kingdom",
+        key: 191
     },
     {
-        name: "United States"   
+        name: "United States",
+        key: 192
     },
     {
-        name: "Uruguay"   
+        name: "Uruguay",
+        key: 193
     },
     {
-        name: "Uzbekistan"   
+        name: "Uzbekistan",
+        key: 194
     },
     {
-        name: "Vanuatu"   
+        name: "Vanuatu",
+        key: 195
     },
     {
-        name: "Venezuela"   
+        name: "Venezuela",
+        key: 196
     },
     {
-        name: "Vietnam"   
+        name: "Vietnam",
+        key: 197
     },
     {
-        name: "Virgin Islands*"   
+        name: "Virgin Islands*",
+        key: 198
     },
     {
-        name: "Yemen"   
+        name: "Yemen",
+        key: 199
     },
     {
-        name: "Zambia"   
+        name: "Zambia",
+        key: 200
     },
     {
-        name: "Zimbabwe"   
+        name: "Zimbabwe",
+        key: 201
     }
 ]
 

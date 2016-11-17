@@ -1,6 +1,7 @@
 import React from 'react';
 import DraftEvent from './DraftEvent';
 import { randomNum } from '../helpers';
+import { shuffle } from '../helpers';
 
 
 
@@ -8,61 +9,98 @@ class Draft extends React.Component {
 	constructor(props){
 		super(props);
 
-		this.startDraft   = this.startDraft.bind(this);
-		this.getNewEvent  = this.getNewEvent.bind(this);
-		this.getNewPicker = this.getNewPicker.bind(this);
-		this.pickCountry = this.pickCountry.bind(this);
+		this.startDraft    = this.startDraft.bind(this);
+		this.getNextEvent  = this.getNextEvent.bind(this);
+		this.getNextPicker = this.getNextPicker.bind(this);
+		this.pickCountry   = this.pickCountry.bind(this);
+		this.resetPickers  = this.resetPickers.bind(this);
 		
 
 		this.state = {
 			event: {},
 			draft: {},
-			picker: {}
+			picker: {},
+			eventIndex: 0,
+			playerIndex: 0
 		}
+
+		this.playerIndex = 0;
 	}
 
 	startDraft() {
-		const currentEvent = this.getNewEvent();
-		const draft = {on: true};
+		// Shuffle Events
+		const shuffledEvents = shuffle( this.props.events.slice() );
+		// const shuffledEvents = this.props.events.slice();
+		this.setState({ shuffledEvents: shuffledEvents });
+		
+		// Pick the next item in the shuffled event list
+		this.getNextEvent( shuffledEvents );
+
+		// Set draft to On
+		this.setState({ draft: {on: true} });
+	}
+
+
+	getNextEvent( shuffledEvents ) {
+		const events = this.state.shuffledEvents || shuffledEvents;
+		const currentEvent = events[ this.state.eventIndex ];
+
+		this.resetPickers();
+
+		this.setState({ eventIndex: this.state.eventIndex + 1 });
 		this.setState({ event: currentEvent });
-		this.setState({ draft: draft });
 	}
 
-	getNewEvent() {
-		const events = this.props.events;
-		let event;
-		
-		// Filter by only events that have not been fully picked by everyone
-		const availableEvents = events.filter( (event) => {
-			return !event.picked;
-		});
+	getNextPicker( $shuffledPlayers ) {
+		// Set the the next player from the shuffled player array
+		// Check to see if shuffled Players in the state is set yet, otherwise use the passed in parameter
+		const shuffPlayers = this.state.shuffledPlayers ? this.state.shuffledPlayers : $shuffledPlayers;
+		const pickingPlayer = shuffPlayers[ this.playerIndex ];
 
-		const key = randomNum(0, availableEvents.length - 1);
-		event = availableEvents[key];
-		
-		if (event) {
-			event.picked = true; // This will be moved to a different method once all players have picked for the event
-			return event;
-		}
-	}
 
-	getNewPicker() {
-		const players = {...this.props.players};
-		const keys = Object.keys(players);
+		// If the all of the players have not picked
+		if(this.playerIndex <= shuffPlayers.length - 1 ){
+			if(!pickingPlayer.hasPicked){
+				pickingPlayer.isPicking = true;
+				this.props.updatePlayer( pickingPlayer.key, pickingPlayer);
+				this.setState({ picker: pickingPlayer });
 
-		const randNum = randomNum(0, keys.length - 1);
-		const key = keys[randNum]; // Select the key using the random array item
-		
-		// Use the selected key to grab the random user
-		const pickingPlayer = players[key];
-		if(!pickingPlayer.hasPicked){
-			pickingPlayer.isPicking = true;
-			pickingPlayer.key = key;
+				// Increment the playerIndex to grab the next in line
+				this.playerIndex += 1;
+			}
+		// If all players have picked, move on to the next event
+		} else {
+			this.playerIndex = 0;
+			this.getNextEvent();
+
 			
-			this.props.updatePlayer( key, pickingPlayer);
-			this.setState({ picker: pickingPlayer });
+
+			// Set the event to be complete since all players have chosen on it
+			const event = this.state.event;
+			event.complete = true;
+
+			// Update the main events object with this new event data
+			this.props.updateEvent( this.state.event.key, event );
 		}
 	}
+
+	resetPickers() {
+		// Reset picking flags
+		this.props.resetPlayerPicks();
+		// Copy player object
+		const players = {...this.props.players};
+		// Convert the players object into an array
+		const playerArray = Object.keys(players).map( (key) => players[key] );
+		// Randomize the player array
+		shuffle(playerArray);
+		this.setState({ shuffledPlayers: playerArray });
+		// Reset the player index for counting
+		this.setState({ playerIndex: 0 });
+		// Grab the next picker
+		this.getNextPicker( playerArray );
+	}
+
+	
 
 
 	// A Player chooses their country
@@ -89,24 +127,24 @@ class Draft extends React.Component {
 		pickingPlayer.hasPicked = true;
 		this.props.updatePlayer( this.state.picker.key, pickingPlayer);
 
-		this.getNewPicker();
+		this.getNextPicker();
 	}
 
 	
 
 
 	render(){
-
 		return (
 			<div className="draft">
 				<h2>Draft</h2>
 				<button onClick={this.startDraft}>Start Draft</button>
+				<button onClick={this.props.resetPlayerPicks}>Reset Player Picks</button>
 
 				{ this.state.draft.on ? <DraftEvent 
 					event={this.state.event} 
 					players={this.props.players} 
 					countries={this.props.countries}
-					getNewPicker={this.getNewPicker}
+					getNextPicker={this.getNextPicker}
 					picker={this.state.picker}
 					pickCountry={this.pickCountry} /> : null }
 			</div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import AddPlayerForm from './AddPlayerForm';
-import Player from './Player';
+import ManagePlayers from './ManagePlayers';
+import CurrentPicks from './CurrentPicks';
+
 import Draft from './Draft';
 import base from '../base';
 import data from './data';
@@ -10,9 +12,11 @@ class App extends React.Component {
 	constructor(){
 		super();
 
-		this.addPlayer = this.addPlayer.bind(this);
-		this.removePlayer = this.removePlayer.bind(this);
-		this.updatePlayer = this.updatePlayer.bind(this);
+		this.addPlayer        = this.addPlayer.bind(this);
+		this.removePlayer     = this.removePlayer.bind(this);
+		this.updatePlayer     = this.updatePlayer.bind(this);
+		this.updateEvent      = this.updateEvent.bind(this);
+		this.resetPlayerPicks = this.resetPlayerPicks.bind(this);
 
 		// set initial state
 		this.state = {
@@ -21,6 +25,8 @@ class App extends React.Component {
 			countries: {},
 			events: {}
 		};
+
+
 	}
 
 	componentDidMount(){
@@ -65,26 +71,43 @@ class App extends React.Component {
 		this.setState({ players: players });
 	}
 
+	updateEvent( key, updatedEvent ) {
+		const events = this.state.events.slice();
+		events[key] = updatedEvent;
+		this.setState({ events: events });
+	}
+
+	// Resets all flags for player picking to reset for a new event
+	resetPlayerPicks() {
+		const players = {...this.state.players};
+
+		for (var key in players ){
+			players[key].hasPicked = false;
+			players[key].isPicking = false;
+		}
+
+		this.setState({ players });
+	}
+
+	
 
 	render(){
 
 		return (
 			<div className="test">
 				<h1>ODT</h1>
-				<div className="addPlayer">
-					<AddPlayerForm addPlayer={this.addPlayer} />
-					<ul className="player-list">
-						{
-							Object.keys( this.state.players ).map( (key) => <Player key={key} index={key} details={this.state.players[key]} removePlayer={this.removePlayer} /> )
-						}
-					</ul>
-				</div>
+				<ManagePlayers addPlayer={this.addPlayer} players={this.state.players} removePlayer={this.removePlayer} />
+
+				<CurrentPicks events={this.state.events} />
+
 
 				<Draft 
 				events={this.state.events} 
 				players={this.state.players} 
 				countries={this.state.countries}
-				updatePlayer={this.updatePlayer} />
+				updatePlayer={this.updatePlayer}
+				resetPlayerPicks={this.resetPlayerPicks}
+				updateEvent={this.updateEvent} />
 			</div>
 		)
 	}

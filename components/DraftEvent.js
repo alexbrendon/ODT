@@ -41,9 +41,10 @@ class DraftEvent extends React.Component {
 
 		return (
 			<div className="draftEvent">
+
 			
 				<h2 className="eventName">{this.props.event.name}</h2>
-				<button onClick={this.props.getNewPicker}>Get Picker</button>
+				<button onClick={this.props.getNextPicker}>Get Picker</button>
 
 				{playerKeys.map( this.pickingPlayer )}
 
