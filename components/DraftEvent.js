@@ -20,7 +20,7 @@ class DraftEvent extends React.Component {
 
 		// Render remaining players to the page
 		if( players[key].isPicking ){
-			return <p key={key} className="pickerName">{players[key].name}</p>
+			return <p key={key} className="pickerName">{players[key].name}!</p>
 		}		
 	}
 
@@ -30,7 +30,7 @@ class DraftEvent extends React.Component {
 
 		// Render remaining players to the page
 		if( !players[key].isPicking && !players[key].hasPicked ){
-			return <li key={key}>{players[key].name}</li>
+			return <li className="remainingPickers" key={key}>{players[key].name}</li>
 		}		
 	}
 
@@ -41,10 +41,7 @@ class DraftEvent extends React.Component {
 
 		return (
 			<div className="draftEvent">
-
-			
 				<h2 className="eventName">{this.props.event.name}</h2>
-				<button onClick={this.props.getNextPicker}>Get Picker</button>
 
 				{playerKeys.map( this.pickingPlayer )}
 

@@ -5,7 +5,8 @@ import CurrentPicks from './CurrentPicks';
 
 import Draft from './Draft';
 import base from '../base';
-import data from './data';
+import dataEvents from './dataEvents';
+import dataCountries from './dataCountries';
 
 
 class App extends React.Component {
@@ -30,8 +31,8 @@ class App extends React.Component {
 	}
 
 	componentDidMount(){
-		this.setState({ events: data.Events });
-		this.setState({ countries: data.Countries });
+		this.setState({ events: dataEvents.Events });
+		this.setState({ countries: dataCountries.Countries });
 		// const url = 'https://restcountries.eu/rest/v1/capital/tallinn';
 		// fetch(url)
 			// .then( (result) => {

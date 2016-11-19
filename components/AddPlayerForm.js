@@ -6,7 +6,7 @@ class AddPlayerForm extends React.Component {
 		event.preventDefault();
 
 		const player = {
-			name: this.name.value,
+			name: this.refs.name.value,
 			medalCount: {
 				gold: null,
 				silver: null,
@@ -22,7 +22,7 @@ class AddPlayerForm extends React.Component {
 	render() {
 		return (
 			<form onSubmit={(e) => this.createPlayer(e) } ref={(input) => this.playerForm = input}>
-			<input ref={(input) => this.name = input} type="text" placeholder="Name" />
+			<input ref="name" type="text" placeholder="Name" />
 				<button onClick={this.props.createPlayer}>Add</button>
 			</form>
 		)
