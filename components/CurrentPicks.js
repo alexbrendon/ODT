@@ -1,4 +1,5 @@
 import React from 'react';
+import Country from './Country';
 
 
 
@@ -9,18 +10,18 @@ class CurrentPicks extends React.Component {
 		this.showTable = this.showTable.bind(this);
 	}
 
-	
+
 	showTable( key ) {
 		const event = this.props.events[key];
 
 		if ( event.complete ) {
 			return (
 				<div key={key} className="eventTable">
-					<p className="eventName">{event.name}</p>
-					<p className="eventName">{event.picks.player.name}</p>
+
 					<ul className="picks">
-						{	
-							event.picks.map( this.showPicks )
+						<li className="eventName">{event.name}</li>
+						{
+							event.picks.map( (pick, i) => <Country key={i} country={pick.country} /> )
 						}
 					</ul>
 				</div>
@@ -31,14 +32,14 @@ class CurrentPicks extends React.Component {
 	showPicks( pick, i ) {
 		return (
 			<li key={i}>
-				<span className="country">{pick.country}</span>
+				<img src={flag} width="30" /> {pick.country.ioc}
 			</li>
 		)
 	}
 
 
 	render(){
-		
+
 		const eventKeys = Object.keys(this.props.events);
 
 		return (

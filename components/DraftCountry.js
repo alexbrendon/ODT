@@ -1,16 +1,15 @@
 import React from 'react';
+import Country from './Country';
 
 
 class DraftCountry extends React.Component {
-	constructor(props){
-		super(props);
-	}
-
 	render(){
 		const country = this.props.country;
 		return (
 			<div className="draftCountry">
-				<li onClick={() => this.props.pickCountry(country.name)}>{country.name}</li>
+				<li onClick={() => this.props.pickCountry(country)}>
+					<Country country={country} />
+				</li>
 			</div>
 		)
 	}

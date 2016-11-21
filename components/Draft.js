@@ -14,7 +14,7 @@ class Draft extends React.Component {
 		this.getNextPicker = this.getNextPicker.bind(this);
 		this.pickCountry   = this.pickCountry.bind(this);
 		this.resetPickers  = this.resetPickers.bind(this);
-		
+
 
 		this.state = {
 			event: {},
@@ -33,7 +33,7 @@ class Draft extends React.Component {
 		const shuffledEvents = shuffle( this.props.events.slice() );
 		// const shuffledEvents = this.props.events.slice();
 		this.shuffledEvents = shuffledEvents;
-		
+
 		// Pick the next item in the shuffled event list
 		this.getNextEvent();
 
@@ -100,22 +100,22 @@ class Draft extends React.Component {
 		this.getNextPicker( playerArray );
 	}
 
-	
+
 
 
 	// A Player chooses their country
 	// Assigns a selected country and player to the current event
-	pickCountry( countryName ) {
+	pickCountry( country ) {
 		const event = {...this.state.event};
 		// Grab the current picking player
 		const pickingPlayer = this.props.players[ this.state.picker.key ];
-		
+
 		// if the picks don't exist yet in this evet, create it.
 		let picks = event.picks || [];
 
-		picks.push({ 
+		picks.push({
 			player: pickingPlayer,
-			country: countryName
+			country: country
 		});
 
 		// Sync the event with the new pick
@@ -130,7 +130,7 @@ class Draft extends React.Component {
 		this.getNextPicker();
 	}
 
-	
+
 
 
 	render(){
@@ -138,11 +138,10 @@ class Draft extends React.Component {
 			<div className="draft">
 				<h2>Draft</h2>
 				<button onClick={this.startDraft}>Start Draft</button>
-				<button onClick={this.props.resetPlayerPicks}>Reset Player Picks</button>
 
-				{ this.state.draft.on ? <DraftEvent 
-					event={this.state.event} 
-					players={this.props.players} 
+				{ this.state.draft.on ? <DraftEvent
+					event={this.state.event}
+					players={this.props.players}
 					countries={this.props.countries}
 					getNextPicker={this.getNextPicker}
 					picker={this.state.picker}
