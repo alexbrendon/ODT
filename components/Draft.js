@@ -1,5 +1,7 @@
 import React from 'react';
 import DraftEvent from './DraftEvent';
+import DraftPlayer from './DraftPlayer';
+import DraftCountry from './DraftCountry';
 import { randomNum } from '../helpers';
 import { shuffle } from '../helpers';
 
@@ -18,7 +20,6 @@ class Draft extends React.Component {
 
 		this.state = {
 			event: {},
-			draft: {},
 			picker: {}
 		}
 
@@ -38,7 +39,7 @@ class Draft extends React.Component {
 		this.getNextEvent();
 
 		// Set draft to On
-		this.setState({ draft: {on: true} });
+		this.props.setDraft( true );
 	}
 
 
@@ -121,6 +122,7 @@ class Draft extends React.Component {
 		// Sync the event with the new pick
 		event.picks = picks;
 		this.setState({ event: event });
+		this.props.updateEvent( this.state.event.key, event );
 
 		// This player is done picking, find a new one.
 		pickingPlayer.isPicking = false;
@@ -134,18 +136,17 @@ class Draft extends React.Component {
 
 
 	render(){
+		const draft = this.props.draft;
 		return (
 			<div className="draft">
 				<h2>Draft</h2>
 				<button onClick={this.startDraft}>Start Draft</button>
 
-				{ this.state.draft.on ? <DraftEvent
-					event={this.state.event}
-					players={this.props.players}
-					countries={this.props.countries}
-					getNextPicker={this.getNextPicker}
-					picker={this.state.picker}
-					pickCountry={this.pickCountry} /> : null }
+				<div className="draftEvent">
+					<DraftEvent event={this.state.event} draft={draft} />
+					<DraftPlayer players={this.props.players} draft={draft} />
+					<DraftCountry countries={this.props.countries} draft={draft} pickCountry={this.pickCountry} />
+				</div>
 			</div>
 		)
 	}

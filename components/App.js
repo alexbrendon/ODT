@@ -18,16 +18,16 @@ class App extends React.Component {
 		this.updatePlayer     = this.updatePlayer.bind(this);
 		this.updateEvent      = this.updateEvent.bind(this);
 		this.resetPlayerPicks = this.resetPlayerPicks.bind(this);
+		this.setDraft         = this.setDraft.bind(this);
 
 		// set initial state
 		this.state = {
 			players: {},
 			medals: {},
 			countries: {},
-			events: {}
+			events: {},
+			draft: false
 		};
-
-
 	}
 
 	componentDidMount(){
@@ -90,6 +90,10 @@ class App extends React.Component {
 		this.setState({ players });
 	}
 
+	setDraft() {
+		this.setState({ draft: true });
+	}
+
 	
 
 	render(){
@@ -98,9 +102,7 @@ class App extends React.Component {
 			<div className="test">
 				<h1>ODT</h1>
 				<ManagePlayers addPlayer={this.addPlayer} players={this.state.players} removePlayer={this.removePlayer} />
-
 				<CurrentPicks events={this.state.events} />
-
 
 				<Draft 
 				events={this.state.events} 
@@ -108,7 +110,9 @@ class App extends React.Component {
 				countries={this.state.countries}
 				updatePlayer={this.updatePlayer}
 				resetPlayerPicks={this.resetPlayerPicks}
-				updateEvent={this.updateEvent} />
+				updateEvent={this.updateEvent}
+				setDraft={this.setDraft}
+				draft={this.state.draft} />
 			</div>
 		)
 	}

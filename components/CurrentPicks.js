@@ -14,14 +14,14 @@ class CurrentPicks extends React.Component {
 	showTable( key ) {
 		const event = this.props.events[key];
 
-		if ( event.complete ) {
+		if ( event.picks ) {
 			return (
 				<div key={key} className="eventTable">
 
 					<ul className="picks">
 						<li className="eventName">{event.name}</li>
 						{
-							event.picks.map( (pick, i) => <Country key={i} country={pick.country} /> )
+							event.picks.map( (pick, i) => <li key={i}><Country country={pick.country} /></li> )
 						}
 					</ul>
 				</div>
@@ -29,13 +29,6 @@ class CurrentPicks extends React.Component {
 		}
 	}
 
-	showPicks( pick, i ) {
-		return (
-			<li key={i}>
-				<img src={flag} width="30" /> {pick.country.ioc}
-			</li>
-		)
-	}
 
 
 	render(){
