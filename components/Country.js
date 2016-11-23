@@ -10,7 +10,10 @@ class Country extends React.Component {
 		const country = this.props.country;
 		const flag = "../img/countries/" + country.ioc + ".png";
 		return (
-				<span><img src={flag} width="30" /> {country.ioc}</span>
+				<div className="countryItem">
+					<img src={flag} width="30" /> 
+					<p>{country.ioc}</p>
+				</div>
 		)
 	}
 }

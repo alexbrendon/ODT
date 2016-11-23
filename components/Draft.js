@@ -20,7 +20,8 @@ class Draft extends React.Component {
 
 		this.state = {
 			event: {},
-			picker: {}
+			picker: {},
+			events: {}
 		}
 
 		this.playerIndex = 0;
@@ -31,9 +32,8 @@ class Draft extends React.Component {
 
 	startDraft() {
 		// Shuffle Events
-		const shuffledEvents = shuffle( this.props.events.slice() );
-		// const shuffledEvents = this.props.events.slice();
-		this.shuffledEvents = shuffledEvents;
+		// const shuffledEvents = shuffle( this.props.events.slice() );
+		this.shuffledEvents = this.props.events;
 
 		// Pick the next item in the shuffled event list
 		this.getNextEvent();
@@ -111,16 +111,25 @@ class Draft extends React.Component {
 		// Grab the current picking player
 		const pickingPlayer = this.props.players[ this.state.picker.key ];
 
-		// if the picks don't exist yet in this evet, create it.
-		let picks = event.picks || [];
+		// if the picks don't exist yet in this event, create it.
+		// let picks = event.picks || []; // Can probably remove this since we're putting the picks on the player state now instead of event state
+		let playerPicks = pickingPlayer.picks || [];
 
-		picks.push({
-			player: pickingPlayer,
-			country: country
+
+		// Can probably remove this since we're putting the picks on the player state now instead of event state
+		// picks.push({
+		// 	player: pickingPlayer,
+		// 	country: country
+		// });
+
+		playerPicks.push({
+			country: country,
+			event: this.state.event
 		});
+		pickingPlayer.picks = playerPicks;
 
 		// Sync the event with the new pick
-		event.picks = picks;
+		event.picked = true;
 		this.setState({ event: event });
 		this.props.updateEvent( this.state.event.key, event );
 
@@ -139,7 +148,6 @@ class Draft extends React.Component {
 		const draft = this.props.draft;
 		return (
 			<div className="draft">
-				<h2>Draft</h2>
 				<button onClick={this.startDraft}>Start Draft</button>
 
 				<div className="draftEvent">

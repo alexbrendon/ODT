@@ -3,41 +3,48 @@ import Country from './Country';
 
 
 
-class CurrentPicks extends React.Component {
-	constructor(props){
-		super(props);
-
-		this.showTable = this.showTable.bind(this);
-	}
 
 
-	showTable( key ) {
-		const event = this.props.events[key];
-
-		if ( event.picks ) {
+class EventTable extends React.Component {
+	render(){
+		const event = this.props.events[this.props.id];
+		if ( event.picked ) {
 			return (
-				<div key={key} className="eventTable">
-
-					<ul className="picks">
-						<li className="eventName">{event.name}</li>
-						{
-							event.picks.map( (pick, i) => <li key={i}><Country country={pick.country} /></li> )
-						}
-					</ul>
-				</div>
+				<li className="eventName">{event.name}</li>
 			)
 		}
+
+		return null;
 	}
+}
 
 
 
+class PlayerColumn extends React.Component {
 	render(){
+		const player = this.props.player;
 
+		if( player.picks ){
+			return (
+				<ul className="playerColumn">
+					<li className="playerName">{player.name}</li>
+					{ player.picks.map( (pick, i) => <li key={i}><Country country={pick.country} /></li> ) }
+				</ul>
+			)
+		}
+
+		return null;
+	}
+}
+
+class CurrentPicks extends React.Component {
+	render(){
 		const eventKeys = Object.keys(this.props.events);
-
+		const playerKeys = Object.keys(this.props.players);
 		return (
 			<div className="currentPicks">
-				{ eventKeys.map( this.showTable ) }
+				<ul className="events">{ eventKeys.map( (key) => <EventTable key={key} id={key} events={this.props.events} /> ) }</ul>
+				{ playerKeys.map( (key) => <PlayerColumn key={key} id={key} player={this.props.players[key]} /> ) }
 			</div>
 		)
 	}

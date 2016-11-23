@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 
 class DraftEvent extends React.Component {
@@ -7,9 +8,13 @@ class DraftEvent extends React.Component {
 	}
 
 	render(){
+		const classes = classNames({
+			'eventName': true,
+			'animate': this.props.draft
+		});
 		if( this.props.draft ){
 			return (				
-				<h2 className="eventName">{this.props.event.name}</h2>
+				<h2 className={classes}>{this.props.event.name}</h2>
 			)
 		}
 

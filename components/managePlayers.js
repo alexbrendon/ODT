@@ -39,7 +39,7 @@ class ManagePlayers extends React.Component {
 
 		return (
 			<div className="managePlayers">
-				<button onClick={this.toggleManagePlayers}>Manage Players</button>
+				<button onClick={this.toggleManagePlayers}>Players</button>
 				{ this.state.showManage ? this.renderPlayerManage() : null }
 			</div>
 		)

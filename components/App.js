@@ -2,6 +2,7 @@ import React from 'react';
 import AddPlayerForm from './AddPlayerForm';
 import ManagePlayers from './ManagePlayers';
 import CurrentPicks from './CurrentPicks';
+import { shuffle } from '../helpers';
 
 import Draft from './Draft';
 import base from '../base';
@@ -31,7 +32,12 @@ class App extends React.Component {
 	}
 
 	componentDidMount(){
-		this.setState({ events: dataEvents.Events });
+		// Shuffle the events
+		let shuffleEvents = shuffle(dataEvents.Events);
+		// Set the key in each event to the new array key in the shuffled order
+		shuffleEvents.map( (event, i) => event.key = i );
+
+		this.setState({ events: shuffleEvents });
 		this.setState({ countries: dataCountries.Countries });
 		// const url = 'https://restcountries.eu/rest/v1/capital/tallinn';
 		// fetch(url)
@@ -92,6 +98,15 @@ class App extends React.Component {
 
 	setDraft() {
 		this.setState({ draft: true });
+
+		// Temporary for testing app
+		const players = {...this.state.players};
+
+		for (var key in players ){
+			players[key].picks = [];
+		}
+
+		this.setState({ players });
 	}
 
 	
@@ -99,10 +114,13 @@ class App extends React.Component {
 	render(){
 
 		return (
-			<div className="test">
-				<h1>ODT</h1>
-				<ManagePlayers addPlayer={this.addPlayer} players={this.state.players} removePlayer={this.removePlayer} />
-				<CurrentPicks events={this.state.events} />
+			<div className="ODT">
+				<header>
+					<h1>ODT</h1>
+					<ManagePlayers addPlayer={this.addPlayer} players={this.state.players} removePlayer={this.removePlayer} />
+				</header>
+
+				<CurrentPicks events={this.state.events} players={this.state.players} />
 
 				<Draft 
 				events={this.state.events} 

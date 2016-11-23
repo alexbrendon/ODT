@@ -33,7 +33,7 @@ class DraftPlayer extends React.Component {
 	render(){
 		const playerKeys = Object.keys(this.props.players);
 
-		if( this.props.draft){
+		if( this.props.draft ){
 			return (
 				<div>
 					{playerKeys.map( this.pickingPlayer )}

@@ -1,9 +1,24 @@
 @import 'reset';
 
 
+$brown        : #594F4F;
+$darkGreen    : #547980;
+$green        : #45ADA8;
+$lightGreen   : #9DE0AD;
+$lighterGreen : #E5FCC2;
+
+$spacing: 20px;
+
 
 body {
 	font-family: helvetica;
+}
+
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 button {
@@ -15,6 +30,8 @@ button {
 	outline: none;
 	border: none;
 	color: darken($color, 60%);
+	margin: 0 $spacing;
+	font-size: 17px;
 
 	&:active {
 		background: darken($color, 60%);
@@ -23,7 +40,8 @@ button {
 }
 
 h1 {
-	// font-size: 30px;
+	font-size: 30px;
+	padding: $spacing;
 }
 
 h2 {
@@ -47,24 +65,40 @@ h2 {
 }
 
 
-
-
-
-
-.eventTable {
+.countryItem {
 	display: flex;
-	flex-direction: column;
+	// justify-content: space-between;
+	align-items: center;
+	width: 50%;
+
+	p {
+		margin-left: 5px;
+	}
+}
 
 
 
-	.picks {
-		display: flex;
-		justify-content: space-between;
+.currentPicks {
+	$height: 30px;
+	$padding: 5px;
+	background: #F6F6F6;
+	display: flex;
+	justify-content: space-around;
+
+	ul {
+		width: 150px;
 
 		li {
-			width: 100px;
-			margin-bottom: 10px;
+			height: $height;
+			padding: $padding 10px;
+			display: flex;
+			align-items: center;
+			border-bottom: 1px solid #EEEEEE;
 		}
+	}
+
+	.events {
+		margin-top: 40px;
 	}
 }
 
@@ -86,6 +120,12 @@ h2 {
 		justify-content: center;
 		margin: 20px;
 		color: #4F8EF1;
+		transform: scale(1);
+		transition: all 3s;
+
+		&.animate {
+			transform: scale(1);
+		}
 	}
 
 	.pickerName {
@@ -100,6 +140,7 @@ h2 {
 		justify-content: center;
 		margin-top: 20px;
 		background: $color;
+		height: 50px;
 
 		.remainingPickers {
 			font-size: 11px;
@@ -107,17 +148,21 @@ h2 {
 			color: darken($color, 20%);
 		}
 	}
-	
+
 	.countries {
 		margin: 40px;
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
 		justify-content: space-around;
-		height: 600px;
+		height: 800px;
 
 		li {
 			cursor: pointer;
+			height: 30px;
+			padding: 5px 10px;
+			display: flex;
+			align-items: center;
 
 			&:hover {
 				background: #eee;
