@@ -1,6 +1,6 @@
 import React from 'react';
 import AddPlayerForm from './AddPlayerForm';
-import ManagePlayers from './managePlayers';
+import ManagePlayers from './ManagePlayer';
 import CurrentPicks from './CurrentPicks';
 import { shuffle } from '../helpers';
 
