@@ -17,7 +17,7 @@ body {
 
 header {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: center;
 }
 
@@ -48,11 +48,44 @@ h2 {
 	font-size: 15px;
 }
 
-.addPlayer {
-	background: #aaa;
-	color: #fff;
-	padding: 5px;
+
+
+
+.managePlayers {
+	width: 100%;
+
+	.addPlayer {
+		padding: 5px;
+		width: 100%;
+
+		input {
+			height: 35px;
+			padding: 0 5px;
+			font-size: 15px;
+			outline: none;
+		}
+
+		.player-list {
+			margin-top: 10px;
+
+			li {
+				border-radius: 5px;
+				background: $darkGreen;
+				color: $lightGreen;
+				padding: 10px 30px 10px 20px;
+				position: relative;
+
+				.close {
+					position: absolute;
+					top: 3px;
+					right: 3px;
+					font-size: 12px;
+				}
+			}
+		}
+	}
 }
+
 
 .player-list {
   display: flex;
